@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Swift</title>
+    <meta name="author" content="Thomas BRELET">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+<!--
+http://fr.slideshare.net/dotCloud/docker-intro-november
+https://blog.docker.com/2014/09/docker-closes-40m-series-c-led-by-sequoia/
+https://www.docker.com/whatisdocker/ (en bas, VM vs Docker)
+-->
+      
+      
+        <section>
+        <h1>Swift</h1>
+        <img src="images/Swift-logo.png" width="300" /><br />
+
+        <br><br>
+        <small><a href="http://thomas.brelet.net">Thomas Brelet</a> / <a href="http://twitter.com/toam">@toam</a></small><br>
+        <small>Développeur iOS Freelance</small>
+        </section>
+
+        <section data-markdown>
+        ## Sommaire
+        - Swift ?
+        - Language
+        - Open source !
+        </section>
+
+        <section data-markdown>
+        ## Swift ?
+        - Langage créé par Apple pour iOS et OSX
+        - Pour remplacer Objective C
+        </section>
+
+        <section data-markdown>
+        ### Objective C
+        ```
+        NSString *str = @"hello,";
+        str = [str stringByAppendingString:@" world"];
+        ```
+        ### Swift
+        ```
+        var str = "hello,"
+        str += " world"
+        ```    
+        </section>
+
+        <section data-markdown>
+        ##Historique
+        - Développement en secret en 2010
+        - Annonce en Juin 2014
+        - Sortie en Septembre 2014
+        - Version 2.0 en Juin 2015 (OS!)
+        </section>
+
+        <section data-markdown>
+        ##Inspiration
+        - Objective C sans le C
+        - Objective-C, Rust, Haskell, Ruby, Python, C#, CLU
+            - Programmation fonctionnelle
+            - Réactive
+        </section>
+
+        <section data-markdown>
+        ##Le plus gros défaut de Swift ?
+        </section>
+
+
+        <section>
+        <img src="images/swift-defaut.png" /><br />
+        </section>
+
+        
+
+        <section data-markdown>
+        # Language
+        </section>
+
+        <section data-markdown>
+        ```
+        var numberOfApples: Int = 4
+        let appleSummary = "I have \(numberOfApples) apples."
+        ```
+        </section>
+
+        <section data-markdown>
+        ```
+        var fruits = ["mango", "kiwi", "avocado"]
+
+        if fruits.isEmpty {
+            print("No fruits in my array.")
+        } else {
+            print("There are \(fruits.count) items in my array")
+        }
+        ```
+        </section>
+
+        <section data-markdown>
+        ## 
+        ```
+        func sayHello(personName: String) -> String {
+            let greeting = "Hello, \(personName)!"
+            return greeting
+        }
+
+        sayHello('Steve')
+        ```
+        </section>
+
+        <section data-markdown>
+        ```
+        Alamofire.request(.GET, "https://www.apple.com/listDevices")
+         .responseJSON { response in
+             print(response)
+         }
+        ```
+        </section>
+
+        <section data-markdown>
+        ```
+        "bonjour".uppercaseString
+
+        [10,1034,77].sort().first
+
+        (1...1024).map{$0 * 2}
+        ```
+        </section>
+
+
+
+        <section data-markdown>
+        # Open Source
+        </section>
+
+
+        <section data-markdown>
+        ## Open source
+        - Annoncé en 2015
+        - Sortie fin 2015 avec la version 2.2
+        - Multi Plate forme
+        - RoadMap publique / Mailing liste
+        </section>
+
+        <section data-markdown>
+        ## Contributions
+        - Course pour contribuer
+        - Quelquess grosses contributions : [Lien](https://github.com/apple/swift-evolution/blob/master/proposals/0007-remove-c-style-for-loops.md)
+        - Beaucoup de recherches sur l'implémentation
+        </section>
+
+
+
+        <section data-markdown>
+        # FIN
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+        });
+      </script>
+    </body>
+  </html>
